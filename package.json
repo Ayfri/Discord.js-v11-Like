@@ -1,0 +1,15 @@
+{
+  "name": "discord.js-v11-like",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Discord.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ayfri",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "12.x"
+  }
+}
