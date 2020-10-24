@@ -3,90 +3,90 @@ const Discord = require('discord.js');
 // todo add JSDOC
 
 Object.defineProperties(Discord.Client.prototype, {
-	Broadcast       : {
+	Broadcast: {
 		get: function () {
 			return this.voice.broadcasts;
-		}
+		},
 	},
-	Browser         : {
-		value: typeof window !== 'undefined'
+	Browser: {
+		value: typeof window !== 'undefined',
 	},
-	Channels        : {
+	Channels: {
 		get: function () {
 			return this.channels.cache;
-		}
+		},
 	},
-	Emojis          : {
+	Emojis: {
 		get: function () {
 			return this.emojis.cache;
-		}
+		},
 	},
-	Guilds          : {
+	Guilds: {
 		get: function () {
 			return this.guilds.cache;
-		}
+		},
 	},
-	Ping            : {
+	Ping: {
 		get: function () {
 			return this.ws.ping;
-		}
+		},
 	},
-	Status          : {
+	Status: {
 		get: function () {
 			return this.ws.status;
-		}
+		},
 	},
-	Users           : {
+	Users: {
 		get: function () {
 			return this.users.cache;
-		}
+		},
 	},
 	VoiceConnections: {
 		get: function () {
 			return this.voice.connections;
-		}
+		},
 	},
-	
+
 	FetchUser: {
 		value: function (id, cache = true) {
 			return this.users.fetch(id, cache);
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.ClientApplication.prototype, {
 	IconURL: {
 		get: function () {
 			return this.iconURL();
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.ClientUser.prototype, {
-	AvatarURL       : {
+	AvatarURL: {
 		get: function () {
 			return this.avatarURL();
-		}
+		},
 	},
 	DisplayAvatarURL: {
 		get: function () {
 			return this.displayAvatarURL();
-		}
+		},
 	},
-	
+
 	CreateGuild: {
 		value: function (name, region, icon) {
 			return this.client.guilds.create(name, {
 				region,
-				icon
+				icon,
 			});
-		}
+		},
 	},
-	SetGame    : {
+	SetGame: {
 		value: function (game, streamingURL) {
-			return this.setActivity(game, {url: streamingURL});
-		}
-	}
+			return this.setActivity(game, { url: streamingURL });
+		},
+	},
 });
 
 Object.defineProperties(Discord.Collection.prototype, {
@@ -96,172 +96,171 @@ Object.defineProperties(Discord.Collection.prototype, {
 			for (let item of this.values) {
 				if (item.delete) result.push(item.delete());
 			}
-			
+
 			return result;
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.Collector.prototype, {
-	Handle   : {
+	Handle: {
 		value: function (...args) {
 			return this.handleCollect(...args);
-		}
+		},
 	},
 	PostCheck: {
 		value: function () {
 			return this.checkEnd();
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.DMChannel.prototype, {
 	CreateCollector: {
 		value: function (filter, options) {
 			return this.createMessageCollector(filter, options);
-		}
+		},
 	},
-	FetchMessage   : {
+	FetchMessage: {
 		value: function (messageID) {
 			return this.messages.fetch(messageID);
-		}
+		},
 	},
-	FetchMessages  : {
+	FetchMessages: {
 		value: function (options) {
 			return this.messages.fetch(options);
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.Emoji.prototype, {
-	AddRestrictedRole    : {
+	AddRestrictedRole: {
 		value: function (role) {
 			return this.roles.add(role);
-		}
+		},
 	},
-	AddRestrictedRoles   : {
+	AddRestrictedRoles: {
 		value: function (...roles) {
 			return this.roles.set(roles);
-		}
+		},
 	},
-	RemoveRestrictedRole : {
+	RemoveRestrictedRole: {
 		value: function (role) {
 			return this.roles.remove(role);
-		}
+		},
 	},
 	RemoveRestrictedRoles: {
 		value: function (...roles) {
 			return this.roles.remove(roles);
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.Guild.prototype, {
-	BannerURL      : {
+	BannerURL: {
 		get: function () {
 			return this.bannerURL();
-		}
+		},
 	},
-	Channels       : {
+	Channels: {
 		get: function () {
 			return this.channels.cache;
-		}
+		},
 	},
-	Emojis         : {
+	Emojis: {
 		get: function () {
 			return this.emojis.cache;
-		}
+		},
 	},
-	IconURL        : {
+	IconURL: {
 		get: function () {
 			return this.iconURL();
-		}
+		},
 	},
-	Presences      : {
+	Presences: {
 		get: function () {
 			return this.presences.cache;
-		}
+		},
 	},
-	Roles          : {
+	Roles: {
 		get: function () {
 			return this.roles.cache;
-		}
+		},
 	},
-	SplashURL      : {
+	SplashURL: {
 		get: function () {
 			return this.splashURL();
-		}
+		},
 	},
 	VoiceConnection: {
 		get: function () {
 			return this.voice.connection;
-		}
+		},
 	},
-	
-	
-	CreateChannel     : {
+
+	CreateChannel: {
 		value: function (name, typeOrOption = 'text', permissionOverwrites, reason) {
 			return this.channels.create(name, {
 				type: typeOrOption,
 				permissionOverwrites,
-				reason
+				reason,
 			});
-		}
+		},
 	},
-	CreateEmoji       : {
+	CreateEmoji: {
 		value: function (attachment, name, roles, reason) {
 			return this.emojis.create(attachment, name, {
 				roles,
-				reason
+				reason,
 			});
-		}
+		},
 	},
-	CreateRole        : {
+	CreateRole: {
 		value: function (roleData, reason) {
 			return this.roles.create({
 				roleData,
-				reason
+				reason,
 			});
-		}
+		},
 	},
-	DeleteEmoji       : {
+	DeleteEmoji: {
 		value: function (emoji, reason) {
 			return this.emojis.resolve(emoji).delete(reason);
-		}
+		},
 	},
-	FetchBans         : {
+	FetchBans: {
 		value: async function () {
 			const result = new Discord.Collection();
 			const bans = await this.fetchBans();
 			for (const [id, ban] of bans) {
 				result.set(id, ban.user);
 			}
-			
+
 			return result;
-		}
+		},
 	},
-	FetchMember       : {
+	FetchMember: {
 		value: async function (id) {
 			return await this.members.fetch(id);
-		}
+		},
 	},
-	FetchMembers      : {
+	FetchMembers: {
 		value: async function (query, limit) {
 			await this.members.fetch({
 				query,
-				limit
+				limit,
 			});
 			return this;
-		}
+		},
 	},
-	PruneMembers      : {
+	PruneMembers: {
 		value: function (days, dry, reason) {
 			return this.members.prune({
 				days,
 				dry,
-				reason
+				reason,
 			});
-		}
+		},
 	},
 	SetChannelPosition: {
 		value: function (channel, position, relative = false) {
@@ -269,421 +268,426 @@ Object.defineProperties(Discord.Guild.prototype, {
 			if (relative && resolvedChannel && !['dm', 'unknown'].includes(resolvedChannel.type)) {
 				position += resolvedChannel.position;
 			}
-			
-			return this.setChannelPositions([{
-				channel,
-				position
-			}]);
-		}
+
+			return this.setChannelPositions([
+				{
+					channel,
+					position,
+				},
+			]);
+		},
 	},
-	SetRolePosition   : {
-		value: function ({role, position}) {
+	SetRolePosition: {
+		value: function ({ role, position }) {
 			return this.roles.resolve(role).setPosition(position);
-		}
+		},
 	},
-	Unban             : {
+	Unban: {
 		value: function (user, reason) {
 			return this.members.resolve(user).unban(reason);
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.GuildChannel.prototype, {
 	CalculatedPosition: {
 		get: function () {
 			return this.position;
-		}
+		},
 	},
-	Position          : {
+	Position: {
 		get: function () {
 			return this.rawPosition;
-		}
+		},
 	},
-	
-	Clone                      : {
+
+	Clone: {
 		value: function (nameOrOptions, withPermissions, withTopic, reason) {
 			let options = {
-				name                : this.name,
+				name: this.name,
 				permissionOverwrites: withPermissions || this.permissionOverwrites,
-				type                : this.type,
-				topic               : withTopic || this.topic,
-				nsfw                : this.nsfw,
-				bitrate             : this.bitrate,
-				userLimit           : this.userLimit,
-				rateLimitPerUser    : this.rateLimitPerUser,
-				parent              : this.parent,
-				reason              : reason
+				type: this.type,
+				topic: withTopic || this.topic,
+				nsfw: this.nsfw,
+				bitrate: this.bitrate,
+				userLimit: this.userLimit,
+				rateLimitPerUser: this.rateLimitPerUser,
+				parent: this.parent,
+				reason: reason,
 			};
 			if (typeof nameOrOptions === 'string') {
 				options.name = nameOrOptions;
 			} else {
-				options = {...options, ...nameOrOptions};
+				options = { ...options, ...nameOrOptions };
 			}
-			
+
 			return this.clone(options);
-		}
+		},
 	},
-	CreateInvite               : {
+	CreateInvite: {
 		value: function (options, reason) {
 			return this.createInvite({
 				...options,
-				reason
+				reason,
 			});
-		}
+		},
 	},
-	MemberPermissions          : {
+	MemberPermissions: {
 		value: function (member) {
 			return this.permissionsFor(member);
-		}
+		},
 	},
-	OverwritePermissions       : {
+	OverwritePermissions: {
 		value: function (userOrRole, options, reason) {
 			return this.createOverwrite(userOrRole, options, reason);
-		}
+		},
 	},
 	ReplacePermissionOverwrites: {
-		value: function ({overwrites, reason}) {
+		value: function ({ overwrites, reason }) {
 			return this.overwritePermissions(overwrites, reason);
-		}
+		},
 	},
-	RolePermissions            : {
+	RolePermissions: {
 		value: function (member) {
 			return this.permissionsFor(member);
-		}
+		},
 	},
-	SetPosition                : {
+	SetPosition: {
 		value: function (position, relative = false) {
-			return this.setPosition(position, {relative});
-		}
-	}
+			return this.setPosition(position, { relative });
+		},
+	},
 });
 
 Object.defineProperties(Discord.GuildMember.prototype, {
-	ColorRole     : {
+	ColorRole: {
 		get: function () {
 			return this.roles.color;
-		}
+		},
 	},
-	Deaf          : {
+	Deaf: {
 		get: function () {
 			return this.voice.deaf;
-		}
+		},
 	},
-	HighestRole   : {
+	HighestRole: {
 		get: function () {
 			return this.roles.highest;
-		}
+		},
 	},
-	HoistRole     : {
+	HoistRole: {
 		get: function () {
 			return this.roles.hoist;
-		}
+		},
 	},
-	Mute          : {
+	Mute: {
 		get: function () {
 			return this.voice.mute;
-		}
+		},
 	},
-	Roles         : {
+	Roles: {
 		get: function () {
 			return this.roles.cache;
-		}
+		},
 	},
-	SelfDeaf      : {
+	SelfDeaf: {
 		get: function () {
 			return this.voice.selfDeaf;
-		}
+		},
 	},
-	SelfMute      : {
+	SelfMute: {
 		get: function () {
 			return this.voice.selfMute;
-		}
+		},
 	},
-	ServerDeaf    : {
+	ServerDeaf: {
 		get: function () {
 			return this.voice.serverDeaf;
-		}
+		},
 	},
-	ServerMute    : {
+	ServerMute: {
 		get: function () {
 			return this.voice.serverMute;
-		}
+		},
 	},
-	Speaking      : {
+	Speaking: {
 		get: function () {
 			return this.voice.speaking;
-		}
+		},
 	},
-	VoiceChannel  : {
+	VoiceChannel: {
 		get: function () {
 			return this.voice.channel;
-		}
+		},
 	},
 	VoiceChannelID: {
 		get: function () {
 			return this.voice.channelID;
-		}
+		},
 	},
 	VoiceSessionID: {
 		get: function () {
 			return this.voice.sessionID;
-		}
+		},
 	},
-	
-	AddRole           : {
+
+	AddRole: {
 		value: function (role, reason) {
 			return this.roles.add(role, reason);
-		}
+		},
 	},
-	AddRoles          : {
+	AddRoles: {
 		value: function (roles, reason) {
 			return this.roles.add(roles, reason);
-		}
+		},
 	},
-	Ban               : {
+	Ban: {
 		value: function (options) {
 			switch (typeof options) {
 				case 'number':
-					return this.ban({days: options});
+					return this.ban({ days: options });
 				case 'string':
-					return this.ban({reason: options});
+					return this.ban({ reason: options });
 				default:
 					return this.ban(options);
 			}
-		}
+		},
 	},
-	HasPermission     : {
+	HasPermission: {
 		value: function (permission, explicit = false, checkAdmin, checkOwner) {
 			if (typeof checkAdmin === 'undefined') checkAdmin = !explicit;
 			if (typeof checkOwner === 'undefined') checkOwner = !explicit;
-			
-			return explicit === this.hasPermission(permission, {
-				checkAdmin,
-				checkOwner
-			});
-		}
+
+			return (
+				explicit ===
+				this.hasPermission(permission, {
+					checkAdmin,
+					checkOwner,
+				})
+			);
+		},
 	},
-	HasPermissions    : {
+	HasPermissions: {
 		value: function (permissions, explicit) {
-			if ( !explicit && this.user.id === this.guild.ownerID) return true;
+			if (!explicit && this.user.id === this.guild.ownerID) return true;
 			return this.hasPermission(permissions, explicit);
-		}
+		},
 	},
 	MissingPermissions: {
 		value: function (permissions, explicit = false) {
-			if ( !(permissions instanceof Array)) permissions = [permissions];
+			if (!(permissions instanceof Array)) permissions = [permissions];
 			return this.permissions.missing(permissions, explicit);
-		}
+		},
 	},
-	RemoveRole        : {
+	RemoveRole: {
 		value: function (role, reason) {
 			return this.roles.remove(role, reason);
-		}
+		},
 	},
-	RemoveRoles       : {
+	RemoveRoles: {
 		value: function (roles, reason) {
 			return this.roles.remove(roles, reason);
-		}
+		},
 	},
-	SetDeaf           : {
+	SetDeaf: {
 		value: function (deaf, reason) {
 			return this.voice.setDeaf(deaf, reason);
-		}
+		},
 	},
-	SetMute           : {
+	SetMute: {
 		value: function (deaf, reason) {
 			return this.voice.setMute(deaf, reason);
-		}
+		},
 	},
-	SetVoiceChannel   : {
+	SetVoiceChannel: {
 		value: function (deaf, reason) {
 			return deaf === null ? this.voice.kick(reason) : this.voice.setChannel(deaf, reason);
-		}
+		},
 	},
-	SetRoles          : {
+	SetRoles: {
 		value: function (roles, reason) {
 			return this.roles.set(roles, reason);
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.Invite.prototype, {
-	TextChannelCount : {
+	TextChannelCount: {
 		get: function () {
 			return this.guild.channels.filter(channel => channel.type === 'text');
-		}
+		},
 	},
 	VoiceChannelCount: {
 		get: function () {
 			return this.guild.channels.filter(channel => channel.type === 'voice');
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.Message.prototype, {
 	Reactions: {
 		get: function () {
 			return this.roles.cache;
-		}
+		},
 	},
-	
-	ClearReactions   : {
+
+	ClearReactions: {
 		value: function () {
 			return this.reactions.removeAll();
-		}
+		},
 	},
-	Delete           : {
+	Delete: {
 		value: function (timeout, reason) {
 			return this.delete({
 				timeout,
-				reason
+				reason,
 			});
-		}
+		},
 	},
 	IsMemberMentioned: {
 		value: function (member) {
 			return this.mentions.has(member);
-		}
+		},
 	},
-	IsMentioned      : {
+	IsMentioned: {
 		value: function (data) {
 			return this.mentions.has(data);
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.MessageAttachment.prototype, {
 	FileName: {
 		get: function () {
 			return this.name;
-		}
+		},
 	},
 	FileSize: {
 		get: function () {
 			return this.size;
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.MessageCollector.prototype, {
 	message: {
 		value: function (...args) {
 			return this.on(...args);
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.MessageEmbed.prototype, {
 	AddBlankField: {
 		value: function () {
 			return this.addField('\u200b', '\u200b');
-		}
+		},
 	},
-	AttachFile   : {
+	AttachFile: {
 		value: function (file) {
 			return this.attachFiles([file]);
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.MessageReaction.prototype, {
 	FetchUsers: {
-		value: function (limit = 100, {before, after}) {
+		value: function (limit = 100, { before, after }) {
 			return this.users.fetch({
 				limit,
 				before,
-				after
+				after,
 			});
-		}
+		},
 	},
-	Remove    : {
+	Remove: {
 		value: function (user) {
 			return this.users.remove(user);
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.Permissions.prototype, {
 	Raw: {
 		get: function () {
 			return this.bitfield;
-		}
+		},
 	},
-	
-	HasPermission     : {
+
+	HasPermission: {
 		value: function (permission, explicit = false) {
 			return this.has(permission, !explicit);
-		}
+		},
 	},
-	HasPermissions    : {
+	HasPermissions: {
 		value: function (permissions, explicit = false) {
 			return this.has(permissions, !explicit);
-		}
+		},
 	},
 	MissingPermissions: {
 		value: function (permissions, explicit = false) {
 			return this.missing(permissions, !explicit);
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.Presence.prototype, {
 	Game: {
 		get: function () {
 			return this.activities[0];
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.RichPresenceAssets.prototype, {
 	SmallImageURL: {
 		get: function () {
 			return this.smallImageURL();
-		}
+		},
 	},
 	LargeImageURL: {
 		get: function () {
 			return this.largeImageURL();
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.Role.prototype, {
 	CalculatedPosition: {
 		get: function () {
 			return this.position;
-		}
+		},
 	},
-	Position          : {
+	Position: {
 		get: function () {
 			return this.rawPosition;
-		}
+		},
 	},
-	
-	HasPermission : {
+
+	HasPermission: {
 		value: function (permission, explicit = false, checkAdmin) {
 			return new Discord.Permissions(this.permissions).has(permission, typeof checkAdmin === 'undefined' ? !explicit : checkAdmin);
-		}
+		},
 	},
 	HasPermissions: {
 		value: function (permissions, explicit = false) {
-			if ( !explicit && this.user.id === this.guild.ownerID) return true;
+			if (!explicit && this.user.id === this.guild.ownerID) return true;
 			return this.permissions.has(permissions, explicit);
-		}
+		},
 	},
-	Serialize     : {
+	Serialize: {
 		value: function () {
 			return this.permissions.serialize();
-		}
+		},
 	},
-	SetPosition   : {
+	SetPosition: {
 		value: function (position, relative = false, reason) {
 			return this.setPosition(position, {
 				relative,
-				reason
+				reason,
 			});
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.Shard.prototype, {
@@ -691,15 +695,13 @@ Object.defineProperties(Discord.Shard.prototype, {
 		value: function (args, execArgv) {
 			if (typeof args !== 'undefined') this.args = args;
 			if (typeof execArgv !== 'undefined') this.execArgv = execArgv;
-			
+
 			return this.spawn();
-		}
-	}
+		},
+	},
 });
 
-Object.defineProperties(Discord.ShardClientUtil.prototype, {
-
-});
+Object.defineProperties(Discord.ShardClientUtil.prototype, {});
 
 Object.defineProperties(Discord.ShardingManager.prototype, {
 	RespawnAll: {
@@ -711,173 +713,172 @@ Object.defineProperties(Discord.ShardingManager.prototype, {
 			return Promise.all(promises).then(() => {
 				return ++currentShardIndex === this.shards.size ? this.shards : this.respawnAll(shardDelay, respawnDelay, waitForReady, currentShardIndex);
 			});
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.StreamDispatcher.prototype, {
 	Stream: {
 		get: function () {
 			return this.broadcast;
-		}
+		},
 	},
-	Time  : {
+	Time: {
 		get: function () {
 			return this.streamTime;
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.TextChannel.prototype, {
-	CreateCollector    : {
-		value: function (filter, {maxMatches, max, time}) {
+	CreateCollector: {
+		value: function (filter, { maxMatches, max, time }) {
 			return this.createMessageCollector(filter, {
-				max         : maxMatches,
+				max: maxMatches,
 				maxProcessed: max,
-				time
+				time,
 			});
-		}
+		},
 	},
-	CreateWebhook      : {
+	CreateWebhook: {
 		value: function (name, avatar, reason) {
 			return this.createWebhook(name, {
 				avatar,
-				reason
+				reason,
 			});
-		}
+		},
 	},
-	FetchMessage       : {
+	FetchMessage: {
 		value: function (messageID) {
 			return this.messages.fetch(messageID);
-		}
+		},
 	},
-	FetchMessages      : {
-		value: function ({limit, before, after, around}) {
+	FetchMessages: {
+		value: function ({ limit, before, after, around }) {
 			return this.messages.fetch({
 				limit,
 				before,
 				after,
-				around
+				around,
 			});
-		}
+		},
 	},
 	FetchPinnedMessages: {
 		value: function () {
 			return this.messages.fetchPinned();
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.User.prototype, {
-	AvatarURL       : {
+	AvatarURL: {
 		get: function () {
 			return this.avatarURL();
-		}
+		},
 	},
 	DisplayAvatarURL: {
 		get: function () {
 			return this.displayAvatarURL();
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.VoiceBroadcast.prototype, {
 	Dispatchers: {
 		get: function () {
 			return this.subscribers;
-		}
+		},
 	},
-	Destroy    : {
+	Destroy: {
 		value: function () {
 			return this.end();
-		}
+		},
 	},
-	
+
 	PlayArbitraryInput: {
 		value: function (input, options) {
 			return this.play(input, options);
-		}
+		},
 	},
 	PlayConvertedInput: {
 		value: function (stream, options) {
 			return this.play(stream, options);
-		}
+		},
 	},
-	PlayFile          : {
+	PlayFile: {
 		value: function (file, options) {
 			return this.play(file, options);
-		}
+		},
 	},
-	PlayOpusStream    : {
+	PlayOpusStream: {
 		value: function (stream, options) {
 			return this.play(stream, options);
-		}
+		},
 	},
-	PlayStream        : {
+	PlayStream: {
 		value: function (stream, options) {
 			return this.play(stream, options);
-		}
+		},
 	},
-	Resume            : {
+	Resume: {
 		value: function () {
 			this.dispatcher.resume();
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.VoiceConnection.prototype, {
-	CreateReceiver    : {
+	CreateReceiver: {
 		value: function () {
 			return this.receiver;
-		}
+		},
 	},
 	PlayArbitraryInput: {
 		value: function (input, options) {
 			return this.play(input, options);
-		}
+		},
 	},
 	PlayConvertedInput: {
 		value: function (stream, options) {
 			return this.play(stream, options);
-		}
+		},
 	},
-	PlayFile          : {
+	PlayFile: {
 		value: function (file, options) {
 			return this.play(file, options);
-		}
+		},
 	},
-	PlayOpusStream    : {
+	PlayOpusStream: {
 		value: function (stream, options) {
 			return this.play(stream, options);
-		}
+		},
 	},
-	PlayStream        : {
+	PlayStream: {
 		value: function (stream, options) {
 			return this.play(stream, options);
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.VoiceReceiver.prototype, {
 	CreateOpusStream: {
 		value: function (user) {
 			return this.createStream(user);
-		}
+		},
 	},
-	CreatePCMStream : {
+	CreatePCMStream: {
 		value: function (user) {
 			return this.createStream(user);
-		}
-	}
+		},
+	},
 });
 
 Object.defineProperties(Discord.Webhook.prototype, {
-	AvatarURL       : {
+	AvatarURL: {
 		get: function () {
 			return this.avatarURL();
-		}
+		},
 	},
 });
-
 
 module.exports = Discord;

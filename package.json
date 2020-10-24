@@ -1,32 +1,32 @@
 {
-  "name": "discord.js-v11-like",
-  "version": "1.0.0",
-  "description": "",
-  "main": "Discord.js",
-  "scripts": {
-    "prettier": "prettier --write Discord.js README.md package.json"
-  },
-  "keywords": [
-    "discord.js",
-    "v11",
-    "v12"
-  ],
-  "author": "Ayfri",
-  "license": "ISC",
-  "dependencies": {
-    "discord.js": "12.x"
-  },
-  "devDependencies": {
-    "prettier": "^2.1.2"
-  },
-  "prettier": {
-    "arrowParens": "avoid",
-    "endOfLine": "lf",
-    "printWidth": 200,
-    "semi": true,
-    "singleQuote": true,
-    "tabWidth": 4,
-    "trailingComma": "es5",
-    "useTabs": true
-  }
+	"author": "Ayfri",
+	"dependencies": {
+		"discord.js": "12.x"
+	},
+	"description": "",
+	"devDependencies": {
+		"prettier": "^2.1.2"
+	},
+	"keywords": [
+		"discord.js",
+		"v11",
+		"v12"
+	],
+	"license": "ISC",
+	"main": "Discord.js",
+	"name": "discord.js-v11-like",
+	"prettier": {
+		"arrowParens": "avoid",
+		"endOfLine": "lf",
+		"printWidth": 200,
+		"semi": true,
+		"singleQuote": true,
+		"tabWidth": 4,
+		"trailingComma": "es5",
+		"useTabs": true
+	},
+	"scripts": {
+		"prettier": "prettier --write Discord.js README.md package.json"
+	},
+	"version": "1.0.0"
 }
