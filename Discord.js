@@ -715,8 +715,7 @@ Object.defineProperties(Discord.ShardingManager.prototype, {
 	}
 });
 
-// This class is private, we will workaround to make the code working.
-/*Object.defineProperties(Discord.StreamDispatcher.prototype, {
+Object.defineProperties(Discord.StreamDispatcher.prototype, {
 	Stream: {
 		get: function () {
 			return this.broadcast;
@@ -727,7 +726,7 @@ Object.defineProperties(Discord.ShardingManager.prototype, {
 			return this.streamTime;
 		}
 	}
-});*/
+});
 
 Object.defineProperties(Discord.TextChannel.prototype, {
 	CreateCollector    : {
