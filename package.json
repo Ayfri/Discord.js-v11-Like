@@ -4,7 +4,7 @@
   "description": "",
   "main": "Discord.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prettier": "prettier --write Discord.js README.md package.json"
   },
   "keywords": [
     "discord.js",
@@ -15,5 +15,18 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "12.x"
+  },
+  "devDependencies": {
+    "prettier": "^2.1.2"
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "endOfLine": "lf",
+    "printWidth": 200,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "trailingComma": "es5",
+    "useTabs": true
   }
 }
