@@ -1,7 +1,7 @@
 {
 	"author": "Ayfri",
 	"dependencies": {
-		"discord.js": "12.x"
+		"discord.js": "12.5.3"
 	},
 	"description": "A package that have the discord.js v11.6.4 fields but works in discord.js v12.x.",
 	"devDependencies": {
